@@ -1,0 +1,33 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-title>
+      Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!details">
+    <img src="assets/imgs/anfield.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle>Anfield Stadium</ion-card-subtitle>
+      <ion-card-title>Liverpool</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Anfield is a football stadium in Anfield, Liverpool, Merseyside, England, which has a seating capacity of 54,074, making it the seventh largest football stadium in England. It has been the home of Liverpool FC since their formation in 1892. It was originally the home of Everton FC from 1884 to 1891, before they moved to Goodison Park after a dispute with the club president.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card [class.show]="details" class="ion-text-center">
+    <img #avatar src="{{details.photo}}" class="ion-padding" />
+    <ion-card-header class="ion-padding">
+      <ion-card-subtitle>{{details.name}}</ion-card-subtitle>
+      <ion-card-title>{{details.team}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <ion-button (click)="showMap(details.id)">
+        <ion-icon slot="icon-only" name="map"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
